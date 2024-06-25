@@ -1,0 +1,135 @@
+1 Nalazite se u mracnoj sumi. Ispred vas su dvije staze.
+1 Krenite lijevom stazom.
+2 Krenite desnom stazom.
+
+2 Krenuli ste lijevom stazom i naisli na rijeku.
+1 Preplivajte rijeku.
+2 Vratite se nazad.
+
+3 Krenuli ste desnom stazom i naisli na brdo.
+1 Popnite se na brdo.
+2 Vratite se nazad.
+
+4 Preplivali ste rijeku i stigli do pecine.
+1 Udite u pecinu.
+2 Nastavite putem pored pecine.
+
+5 Vratili ste se na pocetak sume.
+1 Krenite lijevom stazom.
+2 Krenite desnom stazom.
+
+6 Popeli ste se na brdo i ugledali rusevine starog zamka.
+1 Istrazite rusevine.
+2 Vratite se niz brdo.
+
+7 Usli ste u pecinu i pronasli blago.
+1 Uzmi blago.
+2 Istrazi dalje u pecini.
+
+8 Nastavili ste putem pored pecine i naisli na zmaja.
+1 Borite se sa zmajem.
+2 Pobjegnite.
+
+9 Istrazujete rusevine i pronadete tajni prolaz.
+1 Udite u tajni prolaz.
+2 Vratite se na vrh brda.
+
+10 Vratili ste se niz brdo i naisli na misterioznu osobu.
+1 Razgovarajte s osobom.
+2 Ignorirajte osobu i nastavite dalje.
+
+11 Uzeli ste blago, ali pecina se pocinje urusavati.
+1 Pokusajte pobjeci.
+2 Sakrijte se i cekajte.
+
+12 Istrazujuci dublje u pecini, pronadete izlaz na drugu stranu planine.
+1 Prodite kroz izlaz.
+2 Vratite se nazad.
+
+13 Borili ste se sa zmajem i pobjedili ga.
+1 Pretrazite zmajevo gnijezdo.
+2 Nastavite putem dalje.
+
+14 Pobegli ste od zmaja i nasli se na raskrizju puteva. Lijevi vodi kuci, desni vodi do trznice
+1 Krenite lijevim putem.
+2 Krenite desnim putem.
+
+15 Razgovarate sa misterioznom osobom i dobijate magicni predmet.
+1 Uzmite predmet.
+2 Odbijte predmet.
+
+16 Isli ste svojim putem i naisli na trznicu.
+1 Istrazite trznicu.
+2 Nastavite dalje putem.
+
+17 Pobjegli ste iz urusene pecine, ali, dok ste bjezali, ispalo vam je blago i ostao vam je samo grumen zlata.(zavrsetak: grumen)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+18 Sakrili ste se i cekali, pecina se i dalje urusava, ali ste nasli tajni prolaz.
+1 Prodite kroz prolaz.
+2 Sjedi i odmori se.
+
+19 Odlučili ste pretražiti gnijezdo detaljnije i pronašli tajanstveni svitak koji sadrži kartu s oznakom skrivenog blaga duboko u šumi.
+1 Slijedi kartu.
+2 Prodaj svitak.
+
+20 Pobijedivsi zmaja, nastavili ste putem dalje kroz gustu sumu. Nakon nekoliko sati hodanja, staza se dijeli na dva smjera.
+1 Uputi se prema staroj mocvari.
+2 Uputi se prema tamnoj kolibi.
+
+21 Putujete kroz mocvaru i naidete na starca koji vam kaze da je opasno ici sam, i da ga slijedite.
+1 Prati starca
+2 Idi sam
+
+22 Odlucili ste sami pjesaciti kroz mocvaru, nakon cega vidite rub mocvare.
+1 Idi dublje
+2 Prati rub do znaka civilizacije 
+
+23 Ulazite u staru, zapustenu kolibu, cujete tiho suskanje iza tebe. Okrecete se i susrecete pogled necega sto se brzo pomice prema vama.
+1 Bori se
+2 Razgovaraj 
+
+24 Izlazis iz spilje, vracas se ziv, zdrav i bogat. (zavrsetak: blago)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+25 Spilja se urusila s tobom unutra. (zavrsetak: ukopani)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+26 Naivno ste pratili starca koji vas je doveo u zamku i opljackao. (zavrsetak: opljackani)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+27 Pjesacite ravno, nakon par dana hodanja shvatite da ste izgubljeni. (zavrsetak:izgubljeni)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+28 Iz sjene je izasao trol, borili ste se do zadnjeg daha i oboje pobijedili neprijatelja. (zavrsetak: ratnik)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+29 Razgovarate sa stvorenjem u mraku, uspostavilo se da je to ljubazan trol, postali ste prijatelj. (zavrsetak: prijateljstvo)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+30 Predmet se pretvorio u nevideno prijevozno sredstvo, otisli ste kuci i patentirali dizajn. (zavrsetak: poduzetnik)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+31 Vratili ste se kuci praznih ruku. (zavrsetak:prazne ruke)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+32 Ulazite u trznicu. Mnogi kolekcionari su voljni od vas kupiti razne predmete od zlato, ako ih imate.
+1 Prodaj predmete.
+2 Vrati se kuci.
+
+33 Prodali ste vrijedne predmete i blaga koja ste imali, zaradili ste od tog malo bogatstvo. (zavrsetak: bogatas)
+1 Vrati me na pocetak igre.
+2 Glavni izbornik.
+
+
+
+
