@@ -27,6 +27,48 @@ enum Opcija {
     IZLAZ
 };
 
+typedef enum {
+    PRVA_ODLUKA = 1,
+    DRUGA_ODLUKA
+} Odluka;
+
+typedef enum {
+    SUMA_DVIJE_STAZE = 1,
+    LIJEVA_STAZA,
+    DESNA_STAZA,
+    PLIVANJE_PREKO_RIJEKE,
+    VRACANJE_NA_POCETAK = 5,
+    ODLAZAK_NA_BRDO,
+    ULAZAK_U_PECINU,
+    PUT_PORED_PECINE,
+    ISTRAZIVANJE_RUSEVINA,
+    POVRATAK_NIZ_BRDO = 10,
+    UZIMANJE_BLAGA,
+    DUBLJE_U_PECINU,
+    BORBA_SA_ZMAJEM,
+    BJEG_OD_ZMAJA,
+    RAZGOVOR_MISTERIOZNA_OSOBA = 15,
+    ODLAZAK_NA_TRZNICU,
+    BJEG_IZ_PECINE,
+    SKRIVANJE_I_CEKANJE,
+    GNJEZDO_ZMAJA,
+    ODLAZAK_U_GUSTU_SUMU = 20,
+    PUT_KROZ_MOCVARU,
+    SOLO_PUT,
+    ZAPUSTENA_KOLIBA,
+    IZLAZ_IZ_PECINE,
+    RUSENJE_SPILJE = 25,
+    STARAC_ZAMKA,
+    WE_ARE_LAUST,
+    BORBA_SA_TROLOM,
+    RAZGOVOR_SA_TROLOM,
+    UZIMANJE_PREDMETA = 30,
+    PRAZNE_RUKE,
+    ULAZAK_U_TRZNICU,
+    PRODAJA,
+    IZLAZ_IZ_AVANTURE
+} Scene;
+
 void nova_igra(Igrac* igrac);
 void prikazi_scenu(int scenaID);
 void snimi_igru(Igrac* igrac, const char* filename);

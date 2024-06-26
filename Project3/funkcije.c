@@ -64,114 +64,561 @@ void ucitaj_igru(Igrac* igrac, const char* filename) {
     fclose(file);
 }
 
-void obradi_odluku(int odluka, Igrac* igrac, int* trenutnaScena) {
+//void obradi_odluku(int odluka, Igrac* igrac, int* trenutnaScena) {
+//    switch (*trenutnaScena) {
+//    case 1:
+//        if (odluka == 1) {
+//            *trenutnaScena = 2;
+//        }
+//        else if (odluka == 2) {
+//            *trenutnaScena = 3;
+//        }
+//        else {
+//            printf("Taj izbor ne postoji!");
+//        }
+//        break;
+//    case 2:
+//        *trenutnaScena = (odluka == 1) ?  4 : 5;
+//        break;
+//    case 3:
+//        *trenutnaScena = (odluka == 1) ? 6 : 5;
+//        break;
+//    case 4:
+//        *trenutnaScena = (odluka == 1) ? 7 : 8;
+//        break;
+//    case 5:
+//        *trenutnaScena = (odluka == 1) ? 2 : 3;
+//        break;
+//    case 6:
+//        *trenutnaScena = (odluka == 1) ? 9 : 10;
+//        break;
+//    case 7:
+//        *trenutnaScena = (odluka == 1) ? 11 : 12;
+//        break;
+//    case 8:
+//        *trenutnaScena = (odluka == 1) ? 13 : 14;
+//        break;
+//    case 9:
+//        *trenutnaScena = (odluka == 1) ? 7 : 6;
+//        break;
+//    case 10:
+//        *trenutnaScena = (odluka == 1) ? 15 : 16;
+//        break;
+//    case 11:
+//        *trenutnaScena = (odluka == 1) ? 17 : 18;
+//        break;
+//    case 12:
+//        *trenutnaScena = (odluka == 1) ? 31 : 11;
+//        break;
+//    case 13:
+//        *trenutnaScena = (odluka == 1) ? 19 : 20;
+//        break;
+//    case 14:
+//        *trenutnaScena = (odluka == 1) ? 31 : 16;
+//        break;
+//    case 15:
+//        *trenutnaScena = (odluka == 1) ? 30 : 31;
+//        break;
+//    case 16:
+//        *trenutnaScena = (odluka == 1) ? 32 : 27;
+//        break;
+//    case 17:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 18:
+//        *trenutnaScena = (odluka == 1) ? 24 : 25;
+//        break;
+//    case 19:
+//        *trenutnaScena = (odluka == 1) ? 11 : 16;
+//        break;
+//    case 20:
+//        *trenutnaScena = (odluka == 1) ? 21 : 32;
+//        break;
+//    case 21:
+//        *trenutnaScena = (odluka == 1) ? 26 : 22;
+//        break;
+//    case 22:
+//        *trenutnaScena = (odluka == 1) ? 17 : 16;
+//        break;
+//    case 23:
+//        *trenutnaScena = (odluka == 1) ? 28 : 29;
+//        break;
+//    case 24:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 25:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 26:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 27:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 28:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 29:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 30:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 31:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 32:
+//        *trenutnaScena = (odluka == 1) ? 33 : 34;
+//        break;
+//    case 33:
+//        *trenutnaScena = (odluka == 1) ? 5 : 50;
+//        break;
+//    case 50:
+//        break;
+//    default:
+//        printf("Nepoznata scena!\n");
+//        break;
+//    }
+//    return 0;
+//}
+
+void obradi_odluku(Odluka odluka, Igrac* igrac, Scene* trenutnaScena) {
     switch (*trenutnaScena) {
-    case 1:
-        *trenutnaScena = (odluka == 1) ? 2 : 3;
+    case SUMA_DVIJE_STAZE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = LIJEVA_STAZA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = DESNA_STAZA;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 2:
-        *trenutnaScena = (odluka == 1) ?  4 : 5;
+    case LIJEVA_STAZA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = PLIVANJE_PREKO_RIJEKE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 3:
-        *trenutnaScena = (odluka == 1) ? 6 : 5;
+    case DESNA_STAZA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_BRDO;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 4:
-        *trenutnaScena = (odluka == 1) ? 7 : 8;
+    case PLIVANJE_PREKO_RIJEKE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = ULAZAK_U_PECINU;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = PUT_PORED_PECINE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 5:
-        *trenutnaScena = (odluka == 1) ? 2 : 3;
+    case VRACANJE_NA_POCETAK:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = LIJEVA_STAZA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = DESNA_STAZA;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 6:
-        *trenutnaScena = (odluka == 1) ? 9 : 10;
+    case ODLAZAK_NA_BRDO:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = ISTRAZIVANJE_RUSEVINA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = POVRATAK_NIZ_BRDO;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 7:
-        *trenutnaScena = (odluka == 1) ? 11 : 12;
+    case ULAZAK_U_PECINU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = UZIMANJE_BLAGA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = DUBLJE_U_PECINU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 8:
-        *trenutnaScena = (odluka == 1) ? 13 : 14;
+    case PUT_PORED_PECINE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = BORBA_SA_ZMAJEM;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = BJEG_OD_ZMAJA;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 9:
-        *trenutnaScena = (odluka == 1) ? 7 : 6;
+    case ISTRAZIVANJE_RUSEVINA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = ULAZAK_U_PECINU;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_BRDO;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 10:
-        *trenutnaScena = (odluka == 1) ? 15 : 16;
+    case POVRATAK_NIZ_BRDO:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = RAZGOVOR_MISTERIOZNA_OSOBA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_TRZNICU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 11:
-        *trenutnaScena = (odluka == 1) ? 17 : 18;
+    case UZIMANJE_BLAGA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = BJEG_IZ_PECINE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = SKRIVANJE_I_CEKANJE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 12:
-        *trenutnaScena = (odluka == 1) ? 31 : 11;
+    case DUBLJE_U_PECINU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = PRAZNE_RUKE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = UZIMANJE_BLAGA;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 13:
-        *trenutnaScena = (odluka == 1) ? 19 : 20;
+    case BORBA_SA_ZMAJEM:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = GNJEZDO_ZMAJA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_U_GUSTU_SUMU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 14:
-        *trenutnaScena = (odluka == 1) ? 31 : 16;
+    case BJEG_OD_ZMAJA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = PRAZNE_RUKE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_TRZNICU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 15:
-        *trenutnaScena = (odluka == 1) ? 30 : 31;
+    case RAZGOVOR_MISTERIOZNA_OSOBA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = UZIMANJE_PREDMETA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = PRAZNE_RUKE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 16:
-        *trenutnaScena = (odluka == 1) ? 32 : 27;
+    case ODLAZAK_NA_TRZNICU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = ULAZAK_U_TRZNICU;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = WE_ARE_LAUST; //there are no rules man, we're LAUST
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 17:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case BJEG_IZ_PECINE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 18:
-        *trenutnaScena = (odluka == 1) ? 24 : 25;
+    case SKRIVANJE_I_CEKANJE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_PECINE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = RUSENJE_SPILJE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 19:
-        *trenutnaScena = (odluka == 1) ? 11 : 16;
+    case GNJEZDO_ZMAJA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = UZIMANJE_BLAGA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_TRZNICU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 20:
-        *trenutnaScena = (odluka == 1) ? 21 : 32;
+    case ODLAZAK_U_GUSTU_SUMU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = PUT_KROZ_MOCVARU;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ULAZAK_U_TRZNICU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 21:
-        *trenutnaScena = (odluka == 1) ? 26 : 22;
+    case PUT_KROZ_MOCVARU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = STARAC_ZAMKA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = SOLO_PUT;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 22:
-        *trenutnaScena = (odluka == 1) ? 17 : 16;
+    case SOLO_PUT:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = BJEG_IZ_PECINE;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = ODLAZAK_NA_TRZNICU;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 23:
-        *trenutnaScena = (odluka == 1) ? 28 : 29;
+    case ZAPUSTENA_KOLIBA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = BORBA_SA_TROLOM;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = RAZGOVOR_SA_TROLOM;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 24:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case IZLAZ_IZ_PECINE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 25:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case RUSENJE_SPILJE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 26:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case STARAC_ZAMKA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 27:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case WE_ARE_LAUST:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 28:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case BORBA_SA_TROLOM:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 29:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case RAZGOVOR_SA_TROLOM:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 30:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case UZIMANJE_PREDMETA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 31:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case PRAZNE_RUKE:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 32:
-        *trenutnaScena = (odluka == 1) ? 33 : 34;
+    case ULAZAK_U_TRZNICU:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = PRODAJA;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = PRAZNE_RUKE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 33:
-        *trenutnaScena = (odluka == 1) ? 5 : 50;
+    case PRODAJA:
+        switch (odluka) {
+        case PRVA_ODLUKA:
+            *trenutnaScena = VRACANJE_NA_POCETAK;
+            break;
+        case DRUGA_ODLUKA:
+            *trenutnaScena = IZLAZ_IZ_AVANTURE;
+            break;
+        default:
+            printf("Taj izbor ne postoji!\n");
+            break;
+        }
         break;
-    case 50:
+    case IZLAZ_IZ_AVANTURE:
         break;
     default:
         printf("Nepoznata scena!\n");
         break;
     }
-    return 0;
 }
 
 void arena_minigame(Igrac* igrac) {

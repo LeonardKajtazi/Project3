@@ -19,7 +19,7 @@ int main() {
             case NOVA_IGRA:
                 nova_igra(&igrac);
                 trenutna_scena = 1;
-                while (trenutna_scena != 50) {
+                while (trenutna_scena != IZLAZ_IZ_AVANTURE) {
                     prikazi_scenu(trenutna_scena);
                     scanf("%d", &odluka);
                     obradi_odluku(odluka, &igrac, &trenutna_scena);
