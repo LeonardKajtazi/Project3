@@ -1,4 +1,10 @@
-﻿#include "header.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include "header.h"
+
+#define OPIS 256
+#define GOBLIN 15
+#define ORK 25
+#define ZMAJ 50
 
 void izbornik() {
     printf("\nIzbornik:\n");
@@ -22,7 +28,7 @@ void prikazi_scenu(int scenaID) {
     }
 
     int id, opcija_1, opcija_2;
-    char scena_opis[256], opcija_opis_1[256], opcija_opis_2[256];
+    char scena_opis[OPIS], opcija_opis_1[OPIS], opcija_opis_2[OPIS];
 
     while (fscanf(file, "%d %[^\n] %d %[^\n] %d %[^\n]", &id, scena_opis, &opcija_1, opcija_opis_1, &opcija_2, opcija_opis_2) != EOF) {
         if (id == scenaID) {
@@ -54,7 +60,7 @@ void ucitaj_igru(Igrac* igrac, const char* filename) {
         return;
     }
 
-    
+
 
     size_t result = fread(igrac, sizeof(Igrac), 1, file);
     if (result != 1) {
@@ -63,124 +69,6 @@ void ucitaj_igru(Igrac* igrac, const char* filename) {
 
     fclose(file);
 }
-
-//void obradi_odluku(int odluka, Igrac* igrac, int* trenutnaScena) {
-//    switch (*trenutnaScena) {
-//    case 1:
-//        if (odluka == 1) {
-//            *trenutnaScena = 2;
-//        }
-//        else if (odluka == 2) {
-//            *trenutnaScena = 3;
-//        }
-//        else {
-//            printf("Taj izbor ne postoji!");
-//        }
-//        break;
-//    case 2:
-//        *trenutnaScena = (odluka == 1) ?  4 : 5;
-//        break;
-//    case 3:
-//        *trenutnaScena = (odluka == 1) ? 6 : 5;
-//        break;
-//    case 4:
-//        *trenutnaScena = (odluka == 1) ? 7 : 8;
-//        break;
-//    case 5:
-//        *trenutnaScena = (odluka == 1) ? 2 : 3;
-//        break;
-//    case 6:
-//        *trenutnaScena = (odluka == 1) ? 9 : 10;
-//        break;
-//    case 7:
-//        *trenutnaScena = (odluka == 1) ? 11 : 12;
-//        break;
-//    case 8:
-//        *trenutnaScena = (odluka == 1) ? 13 : 14;
-//        break;
-//    case 9:
-//        *trenutnaScena = (odluka == 1) ? 7 : 6;
-//        break;
-//    case 10:
-//        *trenutnaScena = (odluka == 1) ? 15 : 16;
-//        break;
-//    case 11:
-//        *trenutnaScena = (odluka == 1) ? 17 : 18;
-//        break;
-//    case 12:
-//        *trenutnaScena = (odluka == 1) ? 31 : 11;
-//        break;
-//    case 13:
-//        *trenutnaScena = (odluka == 1) ? 19 : 20;
-//        break;
-//    case 14:
-//        *trenutnaScena = (odluka == 1) ? 31 : 16;
-//        break;
-//    case 15:
-//        *trenutnaScena = (odluka == 1) ? 30 : 31;
-//        break;
-//    case 16:
-//        *trenutnaScena = (odluka == 1) ? 32 : 27;
-//        break;
-//    case 17:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 18:
-//        *trenutnaScena = (odluka == 1) ? 24 : 25;
-//        break;
-//    case 19:
-//        *trenutnaScena = (odluka == 1) ? 11 : 16;
-//        break;
-//    case 20:
-//        *trenutnaScena = (odluka == 1) ? 21 : 32;
-//        break;
-//    case 21:
-//        *trenutnaScena = (odluka == 1) ? 26 : 22;
-//        break;
-//    case 22:
-//        *trenutnaScena = (odluka == 1) ? 17 : 16;
-//        break;
-//    case 23:
-//        *trenutnaScena = (odluka == 1) ? 28 : 29;
-//        break;
-//    case 24:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 25:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 26:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 27:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 28:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 29:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 30:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 31:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 32:
-//        *trenutnaScena = (odluka == 1) ? 33 : 34;
-//        break;
-//    case 33:
-//        *trenutnaScena = (odluka == 1) ? 5 : 50;
-//        break;
-//    case 50:
-//        break;
-//    default:
-//        printf("Nepoznata scena!\n");
-//        break;
-//    }
-//    return 0;
-//}
 
 void obradi_odluku(Odluka odluka, Igrac* igrac, Scene* trenutnaScena) {
     switch (*trenutnaScena) {
@@ -621,8 +509,70 @@ void obradi_odluku(Odluka odluka, Igrac* igrac, Scene* trenutnaScena) {
     }
 }
 
+static long velicina_dat(const char* filename) {
+    FILE* file = fopen(filename, "r"); // Open file in binary mode
+    if (file == NULL) {
+        printf("Greska pri otvaranju fajla.\n");
+        return -1;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long size = ftell(file);
+    fclose(file);
+
+    return size;
+}
+static void izbrisi_minigame() {
+    const char* ime_datoteke = "arena_save.txt";
+
+    if (remove(ime_datoteke) == 0) {
+        printf("Save file '%s' has been deleted successfully.\n", ime_datoteke);
+    }
+    else {
+        printf("Error: Could not delete save file '%s'.\n", ime_datoteke);
+    }
+}
+static int usporedi_tezinu(const void* a, const void* b) {
+    return ((Protivnik*)b)->tezina - ((Protivnik*)a)->tezina;
+}
+static void ucitaj_arenu(int* iskustvo) {
+    const char* ime_datoteke = "arena_save.txt";
+
+    FILE* file = fopen(ime_datoteke, "r");
+    if (file == NULL) {
+        printf("Neuspjesno otvaranje datoteke %s za citanje.\n", ime_datoteke);
+        return;
+    }
+
+    if (fscanf(file, "%d", iskustvo) != 1) {
+        *iskustvo = 0;
+    }
+    fclose(file);
+    printf("Spremljeno iskustvo iz datoteke %s: %d\n\n", ime_datoteke, *iskustvo);
+    long file_size = velicina_dat("arena_save.dat");
+    if (file_size != -1) {
+        printf("Velicina fajla pri cuvanju je %ld bajtova.\n", file_size);
+    }
+}
+static void spremi_minigame(int iskustvo) {
+    const char* ime_datoteke = "arena_save.txt";
+
+    FILE* file = fopen(ime_datoteke, "w+");
+    if (file == NULL) {
+        printf("Nije moguce otvoriti datoteku %s za pisanje.\n", ime_datoteke);
+        return;
+    }
+
+
+    fprintf(file, "%d\n", iskustvo);
+    fclose(file);
+    long file_size = velicina_dat("arena_save.dat");
+    if (file_size != -1) {
+        printf("Velicina fajla pri cuvanju je %ld bajtova.\n", file_size);
+    }
+}
+
 void arena_minigame(Igrac* igrac) {
-    FILE* file = NULL;
     Protivnik* protivnici = (Protivnik*)malloc(3 * sizeof(Protivnik));
     if (protivnici == NULL) {
         printf("Greska prilikom alociranja memorije za protivnike.\n");
@@ -630,84 +580,60 @@ void arena_minigame(Igrac* igrac) {
     }
 
     strncpy(protivnici[0].naziv, "Goblin", MAX_IME);
-    protivnici[0].tezina = 15;
+    protivnici[0].tezina = GOBLIN;
     strncpy(protivnici[1].naziv, "Ork", MAX_IME);
-    protivnici[1].tezina = 25;
+    protivnici[1].tezina = ORK;
     strncpy(protivnici[2].naziv, "Zmaj", MAX_IME);
-    protivnici[2].tezina = 50;
+    protivnici[2].tezina = ZMAJ;
 
-    int broj_protivnika = 3;  // Define the number of opponents
+    qsort(protivnici, 3, sizeof(Protivnik), usporedi_tezinu);
+
+    int iskustvo = 0;
+    int level = 1;
 
     printf("\nDobrodosli u arenu!\n");
-    printf("\n1. Nova igra\t2. Ucitaj igru\n");
+    printf("\n1. Nova igra\t2. Ucitaj igru\t3. Izbrisi spremanje\n");
     int igra = 0;
-    int iskustvo = 0;  // Initialize iskustvo to 0
-    int level = 1;
     scanf("%d", &igra);
 
     if (igra == 2) {
-        file = fopen("arena.txt", "r+");
-        if (file == NULL) {
-            printf("Neuspjesno otvaranje datoteke arena.txt za citanje.\n");
-            free(protivnici);
-            return;
-        }
-        if (fscanf(file, "%d", &iskustvo) == 1) {  // Correct condition to check if a valid number is read
-            printf("Spremljeno iskustvo iz datoteke: %d\n\n", iskustvo);
-        }
-        else {
-            printf("Nije pronaden vazeci broj u datoteci. Pokretanje nove igre.\n");
-            iskustvo = 0;  // Reset iskustvo if no valid data found
-        }
-        fclose(file);  // Close the file after reading
+        ucitaj_arenu(&iskustvo);
+    }
+    else if (igra == 3) {
+        izbrisi_minigame();
+        free(protivnici);
+        return;
     }
 
-    // Determine initial level based on loaded iskustvo
     level = (iskustvo / 100) + 1;
 
     while (1) {
-        // Odabir protivnika
         printf("Odaberite protivnika:\n");
-        for (int i = 0; i < broj_protivnika; ++i) {
+        for (int i = 0; i < 3; ++i) {
             printf("%d. %s - Tezina: %d\n", i + 1, protivnici[i].naziv, protivnici[i].tezina);
         }
 
         int odabir;
         scanf("%d", &odabir);
 
-        if (odabir < 1 || odabir > broj_protivnika) {
+        if (odabir < 1 || odabir > 3) {
             printf("Neispravan odabir protivnika!\n");
             continue;
         }
 
         Protivnik protivnik = protivnici[odabir - 1];
 
-        // Provjera levela prije borbe s orkom i zmajem
         if ((strcmp(protivnik.naziv, "Ork") == 0 && level < 2) || (strcmp(protivnik.naziv, "Zmaj") == 0 && level < 3)) {
             printf("Ne mozete pobijediti %s. Potrebno je dostici odgovarajuci level.\n", protivnik.naziv);
             continue;
         }
 
-        // Simulacija borbe
         printf("\nBorite se protiv %s!\n", protivnik.naziv);
-
-        // Simulacija pobjede
         printf("Pobjedili ste!\n");
-
-        // Dodjela iskustva za poraz protivnika
         iskustvo += protivnik.tezina;
 
-        // Save experience points to file
-        file = fopen("arena.txt", "w+");
-        if (file == NULL) {
-            printf("Could not open file arena.txt for writing.\n");
-            free(protivnici);
-            return;
-        }
-        fprintf(file, "%d\n", iskustvo);
-        fclose(file);  // Close the file after writing
+        spremi_minigame(iskustvo);
 
-        // Provjera je li igrač dostigao dovoljno iskustva za level up
         if (iskustvo >= 100 * level) {
             printf("Cestitamo! Dostigli ste level %d!\n", level + 1);
             level++;
@@ -720,8 +646,6 @@ void arena_minigame(Igrac* igrac) {
             break;
         }
     }
-
     free(protivnici);
-    printf("\nArena minigame zavrsena.\n");
+    protivnici = NULL;
 }
-
