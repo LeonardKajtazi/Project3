@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 
 #ifndef HEADER
 #define HEADER_H
@@ -74,8 +75,6 @@ void snimi_igru(Igrac* igrac, const char* filename);
 void ucitaj_igru(Igrac* igrac, const char* filename);
 void izbornik();
 void obradi_odluku(int odluka, Igrac* igrac, int* trenutnaScena);
-void izbrisi_datoteku();
-int usporedi_tezinu(const void* a, const void* b);
 void arena_minigame(Igrac* igrac); // Dodana deklaracija funkcije
 
 #endif
