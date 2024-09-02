@@ -509,9 +509,9 @@ void obradi_odluku(Odluka odluka, Igrac* igrac, Scene* trenutnaScena) {
     }
 }
 
-
+//arena miniigra
 static long velicina_dat(const char* filename) {
-    FILE* file = fopen(filename, "r"); // Open file in binary mode
+    FILE* file = fopen(filename, "r"); 
     if (file == NULL) {
         printf("Greska pri otvaranju fajla.\n");
         return -1;
@@ -527,10 +527,10 @@ static void izbrisi_minigame() {
     const char* ime_datoteke = "arena_save.txt";
 
     if (remove(ime_datoteke) == 0) {
-        printf("Save file '%s' has been deleted successfully.\n", ime_datoteke);
+        printf("Datoteka '%s' je uspjesno obrisana.\n", ime_datoteke);
     }
     else {
-        printf("Error: Could not delete save file '%s'.\n", ime_datoteke);
+        printf("Greska: Neuspjesno brisanje datoteke '%s'.\n", ime_datoteke);
     }
 }
 static int usporedi_tezinu(const void* a, const void* b) {
@@ -541,7 +541,7 @@ static void ucitaj_arenu(int* iskustvo) {
 
     FILE* file = fopen(ime_datoteke, "r");
     if (file == NULL) {
-        printf("Neuspjesno otvaranje datoteke %s za citanje.\n", ime_datoteke);
+        printf("Neuspjesno otvaranje datoteke %s za citanje, zapocinjem novu igru.\n", ime_datoteke);
         return;
     }
 
@@ -550,7 +550,7 @@ static void ucitaj_arenu(int* iskustvo) {
     }
     fclose(file);
     printf("Spremljeno iskustvo iz datoteke %s: %d\n\n", ime_datoteke, *iskustvo);
-    long file_size = velicina_dat("arena_save.dat");
+    long file_size = velicina_dat(ime_datoteke); 
     if (file_size != -1) {
         printf("Velicina fajla pri cuvanju je %ld bajtova.\n", file_size);
     }
@@ -567,7 +567,7 @@ static void spremi_minigame(int iskustvo) {
 
     fprintf(file, "%d\n", iskustvo);
     fclose(file);
-    long file_size = velicina_dat("arena_save.dat");
+    long file_size = velicina_dat(ime_datoteke); 
     if (file_size != -1) {
         printf("Velicina fajla pri cuvanju je %ld bajtova.\n", file_size);
     }
